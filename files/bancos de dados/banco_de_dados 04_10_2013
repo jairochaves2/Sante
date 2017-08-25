@@ -1,0 +1,524 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.5.18
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema bdenem
+--
+
+CREATE DATABASE IF NOT EXISTS bdenem;
+USE bdenem;
+
+--
+-- Definition of table `cadastro`
+--
+
+DROP TABLE IF EXISTS `cadastro`;
+CREATE TABLE `cadastro` (
+  `id` bigint(255) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `quandequest` int(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cadastro`
+--
+
+/*!40000 ALTER TABLE `cadastro` DISABLE KEYS */;
+INSERT INTO `cadastro` (`id`,`nome`,`quandequest`) VALUES 
+ (1,'jairo chaves',3);
+/*!40000 ALTER TABLE `cadastro` ENABLE KEYS */;
+
+
+--
+-- Definition of table `certificado`
+--
+
+DROP TABLE IF EXISTS `certificado`;
+CREATE TABLE `certificado` (
+  `id` bigint(255) unsigned NOT NULL AUTO_INCREMENT,
+  `marcada` bigint(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `certificado`
+--
+
+/*!40000 ALTER TABLE `certificado` DISABLE KEYS */;
+/*!40000 ALTER TABLE `certificado` ENABLE KEYS */;
+
+
+--
+-- Definition of table `certificadoerrados`
+--
+
+DROP TABLE IF EXISTS `certificadoerrados`;
+CREATE TABLE `certificadoerrados` (
+  `id` bigint(255) unsigned NOT NULL AUTO_INCREMENT,
+  `errado` int(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `certificadoerrados`
+--
+
+/*!40000 ALTER TABLE `certificadoerrados` DISABLE KEYS */;
+/*!40000 ALTER TABLE `certificadoerrados` ENABLE KEYS */;
+
+
+--
+-- Definition of table `contador`
+--
+
+DROP TABLE IF EXISTS `contador`;
+CREATE TABLE `contador` (
+  `id` bigint(255) unsigned NOT NULL AUTO_INCREMENT,
+  `ch` int(200) NOT NULL,
+  `cn` int(200) NOT NULL,
+  `lc` int(200) NOT NULL,
+  `mt` int(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `contador`
+--
+
+/*!40000 ALTER TABLE `contador` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contador` ENABLE KEYS */;
+
+
+--
+-- Definition of table `notas`
+--
+
+DROP TABLE IF EXISTS `notas`;
+CREATE TABLE `notas` (
+  `nome` varchar(100) NOT NULL,
+  `turma` varchar(30) NOT NULL,
+  `ch` varchar(30) NOT NULL,
+  `cn` varchar(30) NOT NULL,
+  `lc` varchar(30) NOT NULL,
+  `mt` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `notas`
+--
+
+/*!40000 ALTER TABLE `notas` DISABLE KEYS */;
+INSERT INTO `notas` (`nome`,`turma`,`ch`,`cn`,`lc`,`mt`) VALUES 
+ ('jairochaves','redes de computadores','411.58000000000004','452.908','420.648','457.99199999999996'),
+ ('AAA','AAAAAAAAA','411.58000000000004','452.908','420.648','457.99199999999996'),
+ ('bb','bbbbbbbb','411.58000000000004','452.908','420.648','457.99199999999996'),
+ ('JAIRO  CHAVES','REDES DE COMPUTADORES','411.58000000000004','452.908','420.648','457.99199999999996'),
+ ('mirian sousa','redes de computadores','314.93','328.06800000000004','316.108','307.332'),
+ ('','','714.5240000000001','579.004','597.19','774.3779999999999');
+/*!40000 ALTER TABLE `notas` ENABLE KEYS */;
+
+
+--
+-- Definition of table `questoes`
+--
+
+DROP TABLE IF EXISTS `questoes`;
+CREATE TABLE `questoes` (
+  `id` bigint(255) unsigned NOT NULL AUTO_INCREMENT,
+  `enunciado` blob NOT NULL,
+  `pi` varchar(255) NOT NULL,
+  `si` varchar(255) NOT NULL,
+  `ti` varchar(255) NOT NULL,
+  `qi` varchar(255) NOT NULL,
+  `qii` varchar(255) NOT NULL,
+  `certo` varchar(255) NOT NULL,
+  `aenem` varchar(255) NOT NULL,
+  `c_o_e` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `questoes`
+--
+
+/*!40000 ALTER TABLE `questoes` DISABLE KEYS */;
+INSERT INTO `questoes` (`id`,`enunciado`,`pi`,`si`,`ti`,`qi`,`qii`,`certo`,`aenem`,`c_o_e`) VALUES 
+ (1,0x6A6169726F,'a','a','a','a','a','Primeiro item','CIENCIAS HUMANAS','nao visto'),
+ (2,0x6A6169726F,'a','a','a','a','a','Segundo item','CIENCIAS DA NATUREZA','nao visto'),
+ (3,0x6A6169726F,'a','a','a','a','a','Segundo item','LINGUAGENS E CÓDIGOS','visto'),
+ (4,0x6A6169726F,'a','a','a','a','a','Segundo item','MATEMÁTICA','nao visto'),
+ (5,0x71756A6E646862686363636B6C,'esse','sas','sas','asa','sasa','Segundo item','CIENCIAS HUMANAS','nao visto');
+/*!40000 ALTER TABLE `questoes` ENABLE KEYS */;
+
+
+--
+-- Definition of table `ufc`
+--
+
+DROP TABLE IF EXISTS `ufc`;
+CREATE TABLE `ufc` (
+  `campus` varchar(30) NOT NULL,
+  `curso` varchar(50) NOT NULL,
+  `modalidadedeDisputa` varchar(100) NOT NULL,
+  `notaDeCorte` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ufc`
+--
+
+/*!40000 ALTER TABLE `ufc` DISABLE KEYS */;
+INSERT INTO `ufc` (`campus`,`curso`,`modalidadedeDisputa`,`notaDeCorte`) VALUES 
+ ('Pici','Abi – eng.  de energias e meio ambiente - Integral','Ampla Concorrência',711.94),
+ ('Pici','abi – eng.  de energias e meio ambiente-Integral','Cota Racial. Esc. Pública até 1,5 SM',682.52),
+ ('Pici','abi – eng. de energias e meio ambiente-Integral','Cota Racial. Esc. Pública renda livre',689.72),
+ ('Pici','abi – eng. de energias e meio ambiente-Integral','Cota Escola Pública até 1,5 SM',694.9),
+ ('Pici','abi – eng. de energias e meio ambiente-Integral','Cota Escola Pública renda livre',669),
+ ('Benfica','administração-Integral','Ampla Concorrência',687.02),
+ ('Benfica','Administração-Integral','Cota Racial. Esc. Pública até 1,5 SM',664.96),
+ ('Benfica','Administração-Integral','Cota Racial. Esc. Pública renda livre',668.26),
+ ('Benfica','Administração-Integral','Cota Escola Pública até 1,5 SM',647.38),
+ ('Benfica','Administração-Integral','Cota Escola Pública renda livre',646.52),
+ ('Juazeiro do norte','Administração Noturno','Ampla Concorrência',656.04),
+ ('Benfica','Administração Noturno','Ampla Concorrência',686.66),
+ ('Juazeiro do norte','Administração Noturno','Cota Racial. Esc. Pública até 1,5 SM',634.82),
+ ('Benfica','Administração Noturno','Cota Racial. Esc. Pública até 1,5 SM',680.84),
+ ('Benfica','Administração Noturno','Cota Racial. Esc. Pública renda livre',682.26),
+ ('Juazeiro do norte','Administração Noturno','Cota Racial. Esc. Pública renda livre',640.74),
+ ('Benfica','Administração Noturno','Cota Escola Pública até 1,5 SM',676.5),
+ ('Juazeiro do norte','Administração Noturno','Cota Escola Pública até 1,5 SM',648.7),
+ ('Benfica','Administração Noturno','Cota Escola Pública renda livre',683.68),
+ ('Juazeiro do norte','Administração pública Noturno','Ampla Concorrência',636.12),
+ ('Juazeiro do norte','Administração pública Noturno','Cota Racial. Esc. Pública até 1,5 SM',623.76),
+ ('Juazeiro do norte','Administração pública Noturno','Cota Racial. Esc. Pública renda livre',621.96),
+ ('Juazeiro do norte','Administração pública Noturno','Cota Escola Pública até 1,5 SM',616.32),
+ ('Pici','Agronomia Integral','Ampla Concorrência',649.06),
+ ('Juazeiro do norte','Agronomia Integral','Ampla Concorrência',623.34),
+ ('Juazeiro do norte','Agronomia Integral','Cota Racial. Esc. Pública até 1,5 SM',608.42),
+ ('Pici','Agronomia Integral','Ampla Concorrência',649.06),
+ ('Juazeiro do norte','Agronomia Integral','Ampla Concorrência',623.34),
+ ('Juazeiro do norte','Agronomia Integral','Cota Racial. Esc. Pública até 1,5 SM',608.42),
+ ('Pici','Agronomia Integral','Cota Racial. Esc. Pública até 1,5 SM',637.16),
+ ('Juazeiro do norte','Agronomia Integral','Cota Racial. Esc. Pública renda livre',613.62),
+ ('Pici','Agronomia Integral','Cota Racial. Esc. Pública renda livre',636.46),
+ ('Pici','Agronomia Integral','Cota Escola Pública até 1,5 SM',640.08),
+ ('Juazeiro do norte','Agronomia Integral','Cota Escola Pública até 1,5 SM',618),
+ ('Pici','Agronomia Integral','Cota Escola Pública renda livre',635.4),
+ ('Juazeiro do norte','Agronomia Integral','Cota Escola Pública renda livre',631.42),
+ ('Fortaleza','Arquitetura e urbanismo Integral','Ampla Concorrência',732.68),
+ ('Fortaleza','Arquitetura e urbanismo Integral','Cota Racial. Esc. Pública até 1,5 SM',706.8),
+ ('Fortaleza','Arquitetura e urbanismo Integral','Cota Racial. Esc. Pública renda livre',710.02),
+ ('Fortaleza','Arquitetura e urbanismo Integral','Cota Escola Pública até 1,5 SM',723.92),
+ ('Fortaleza','Arquitetura e urbanismo Integral','Cota Escola Pública renda livre',706.98),
+ ('Juazeiro do norte','Biblioteconomia Integral','Ampla Concorrência',606.88),
+ ('Fortaleza','Biblioteconomia Integral','Ampla Concorrência',630.18),
+ ('Juazeiro do norte','Biblioteconomia Integral','Cota Racial. Esc. Pública até 1,5 SM',600.44),
+ ('Fortaleza','Biblioteconomia Integral','Cota Racial. Esc. Pública até 1,5 SM',623.18),
+ ('Fortaleza','Biblioteconomia Integral','Cota Racial. Esc. Pública renda livre',617.72),
+ ('Juazeiro do norte','Biblioteconomia Integral','Cota Racial. Esc. Pública renda livre',583.64),
+ ('Fortaleza','Biblioteconomia Integral','Cota Escola Pública até 1,5 SM',627.72),
+ ('Juazeiro do norte','Biblioteconomia Integral','Cota Escola Pública até 1,5 SM',598.06),
+ ('Fortaleza','Biblioteconomia Integral','Cota Escola Pública renda livre',650.42),
+ ('Pici','Biotecnologia Integral','Ampla Concorrência',709.48),
+ ('Pici','Biotecnologia Integral','Cota Racial. Esc. Pública até 1,5 SM',671.28),
+ ('Pici','Biotecnologia Integral','Cota Racial. Esc. Pública renda livre',679.36),
+ ('Pici','Biotecnologia Integral','Cota Escola Pública até 1,5 SM',670.98),
+ ('Labomar','Ciências ambientais Integral','Ampla Concorrência',666.72),
+ ('Labomar','Ciências ambientais Integral','Cota Racial. Esc. Pública até 1,5 SM',648.32),
+ ('Labomar','Ciências ambientais Integral','Cota Racial. Esc. Pública renda livre',629.8),
+ ('Benfica','Ciências atuariais Noturno','Ampla Concorrência',658.92),
+ ('Benfica','Ciências atuariais Noturno','Cota Racial. Esc. Pública até 1,5 SM',647.8),
+ ('Benfica','Ciências atuariais Noturno','Cota Racial. Esc. Pública renda livre',652.62),
+ ('Pici','Ciências biológicas Integral','Ampla Concorrência',684.96),
+ ('Pici','Ciências biológicas Integral','Cota Racial. Esc. Pública até 1,5 SM',673.02),
+ ('Pici','Ciências biológicas Integral','Cota Racial. Esc. Pública renda livre',673.64),
+ ('Pici','Ciências biológicas Integral','Ampla Concorrência',671.3),
+ ('Pici','Ciências biológicas Integral','Cota Racial. Esc. Pública até 1,5 SM',649.68),
+ ('Pici','Ciências biológicas Integral','Cota Racial. Esc. Pública renda livre',650.28),
+ ('Benfica','Ciências contábeis Integral','Ampla Concorrência',673.68),
+ ('Benfica','Ciências contábeis Integral','Cota Racial. Esc. Pública até 1,5 SM',653.74),
+ ('Benfica','Ciências contábeis Integral','Cota Racial. Esc. Pública renda livre',656.28),
+ ('Benfica','Ciências contábeis Integral','Cota Escola Pública até 1,5 SM',666.18),
+ ('Benfica','Ciências contábeis Integral','Cota Escola Pública renda livre',706.8),
+ ('Benfica','Ciências contábeis Noturno','Ampla Concorrência',676.36),
+ ('Benfica','Ciências contábeis Noturno','Cota Racial. Esc. Pública até 1,5 SM',667.3),
+ ('Benfica','Ciências contábeis Noturno','Cota Racial. Esc. Pública renda livre',654.52),
+ ('Benfica','Ciências contábeis Noturno','Cota Escola Pública até 1,5 SM',680.44),
+ ('Benfica','Ciências contábeis Noturno','Cota Escola Pública renda livre',696.96),
+ ('Benfica','Ciências econômicas Integral','Ampla Concorrência',667.54),
+ ('Benfica','Ciências econômicas Integral','Cota Racial. Esc. Pública até 1,5 SM',630.5),
+ ('Benfica','Ciências econômicas Integral','Cota Racial. Esc. Pública renda livre',649.52),
+ ('Benfica','Ciências econômicas Integral','Cota Escola Pública até 1,5 SM',635.8),
+ ('Benfica','Ciências econômicas Integral','Cota Escola Pública renda livre',666.62),
+ ('Benfica','Ciências econômicas Noturno','Ampla Concorrência',667.24),
+ ('Sobral','Ciências econômicas Noturno','Ampla Concorrência',652.54),
+ ('Benfica','Ciências econômicas Noturno','Cota Racial. Esc. Pública até 1,5 SM',643.92),
+ ('Sobral','Ciências econômicas Noturno','Cota Racial. Esc. Pública até 1,5 SM',634.62),
+ ('Benfica','Ciências econômicas Noturno','Cota Racial. Esc. Pública renda livre',658.76),
+ ('Sobral','Ciências econômicas Noturno','Cota Racial. Esc. Pública renda livre',652.96),
+ ('Benfica','Ciências econômicas Noturno','Cota Escola Pública até 1,5 SM',679.38),
+ ('Sobral','Ciências econômicas Noturno','Cota Escola Pública até 1,5 SM',651.12),
+ ('Benfica','Ciências econômicas Noturno','Cota Escola Pública renda livre',682.06),
+ ('Fortaleza','Ciências sociais Integral','Ampla Concorrência',670.32),
+ ('Fortaleza','Ciências sociais Integral','Cota Racial. Esc. Pública até 1,5 SM',647.42),
+ ('Fortaleza','Ciências sociais Integral','Cota Racial. Esc. Pública renda livre',615.64),
+ ('Fortaleza','Ciências sociais Noturno','Ampla Concorrência',668.5),
+ ('Fortaleza','Ciências sociais Noturno','Cota Racial. Esc. Pública até 1,5 SM',642.78),
+ ('Fortaleza','Ciências sociais Noturno','Cota Racial. Esc. Pública renda livre',660.36),
+ ('Fortaleza','Ciências sociais Integral','Ampla Concorrência',649.68),
+ ('Fortaleza','Ciências sociais Integral','Cota Racial. Esc. Pública até 1,5 SM',634.24),
+ ('Fortaleza','Ciências sociais Integral','Cota Racial. Esc. Pública renda livre',638.74),
+ ('Benfica','Ciências sociais Noturno','Ampla Concorrência',654.82),
+ ('Benfica','Ciências sociais Noturno','Cota Racial. Esc. Pública até 1,5 SM',633.48),
+ ('Benfica','Ciências sociais Noturno','Cota Racial. Esc. Pública renda livre',651.92),
+ ('Benfica','Cinema e audiovisual Integral','Ampla Concorrência',684.9),
+ ('Benfica','Cinema e audiovisual','Cota Racial. Esc. Pública até 1,5 SM',667.7),
+ ('Benfica','Cinema e audiovisual Integral','Cota Racial. Esc. Pública renda livre',668.52),
+ ('Fortaleza','Computação Integral','Ampla Concorrência',695.08),
+ ('Fortaleza','Computação Integral','Cota Racial. Esc. Pública até 1,5 SM',655.4),
+ ('Fortaleza','Computação Integral','Cota Racial. Esc. Pública renda livre',670.16),
+ ('Fortaleza','Computação Integral','Cota Escola Pública até 1,5 SM',685.34),
+ ('Fortaleza','Computação Integral','Cota Escola Pública renda livre',683.34),
+ ('Benfica','Comunicação social – jornalismo Integral','Ampla Concorrência',704.44),
+ ('Benfica','Comunicação social – jornalismo Integral','Cota Racial. Esc. Pública até 1,5 SM',676.16),
+ ('Benfica','Comunicação social – jornalismo Integral','Cota Racial. Esc. Pública renda livre',681.52),
+ ('Benfica','Comunicação social – jornalismo Integral','Cota Escola Pública até 1,5 SM',680.14),
+ ('Pici','Educação física Noturno','Ampla Concorrência',651.14),
+ ('Benfica','Comunicação social – p. e propaganda Integral','Ampla Concorrência',697.88),
+ ('Benfica','Comunicação social – p. e propaganda Integral','Cota Racial. Esc. Pública até 1,5 SM',675.84),
+ ('Benfica','Comunicação social – p. e propaganda Integral','Cota Racial. Esc. Pública renda livre',680.34),
+ ('Benfica','Comunicação social – p. e propaganda Integral','Cota Escola Pública até 1,5 SM',681.78),
+ ('Benfica','Dança Integral','Ampla Concorrência',648.14),
+ ('Benfica','Dança Integral','Cota Racial. Esc. Pública até 1,5 SM',615.96),
+ ('Benfica','Dança Integral','Cota Racial. Esc. Pública renda livre',674.46),
+ ('Benfica','Dança Integral','Ampla Concorrência',639.58),
+ ('Benfica','Dança Integral','Ampla Concorrência',639.58),
+ ('Benfica','Dança Integral','Cota Racial. Esc. Pública até 1,5 SM',608.02),
+ ('Benfica','Dança Integral','Cota Racial. Esc. Pública renda livre',618.28),
+ ('Pici','Design Integral','Ampla Concorrência',694.84),
+ ('Pici','Design Integral','Cota Racial. Esc. Pública até 1,5 SM',664.98),
+ ('Pici','Design Integral','Cota Racial. Esc. Pública renda livre',663.86),
+ ('Juazeiro do norte','Design de produto Noturno','Ampla Concorrência',634.78),
+ ('Juazeiro do norte','Design de produto Noturno','Cota Racial. Esc. Pública até 1,5 SM',614.3),
+ ('Juazeiro do norte','Design de produto Noturno','Cota Racial. Esc. Pública renda livre',619.58),
+ ('Juazeiro do norte','Design de produto Noturno','Cota Escola Pública até 1,5 SM',621.46),
+ ('Benfica','Design – moda Integral','Ampla Concorrência',674.74),
+ ('Benfica','Design – moda Integral','Cota Racial. Esc. Pública até 1,5 SM',653.28),
+ ('Benfica','Design – moda Integral','Cota Racial. Esc. Pública renda livre',645.68),
+ ('Benfica','Design – moda Integral','Cota Escola Pública até 1,5 SM',655.52),
+ ('Benfica','Design – moda Integral','Cota Escola Pública renda livre',676.26),
+ ('Benfica','Direito Integral','Ampla Concorrência',751.56),
+ ('Benfica','Direito Integral','Cota Racial. Esc. Pública até 1,5 SM',705.46),
+ ('Benfica','Direito Integral','Cota Racial. Esc. Pública renda livre',725.8),
+ ('Benfica','Direito Integral','Cota Escola Pública até 1,5 SM',712.54),
+ ('Benfica','Direito Integral','Cota Escola Pública renda livre',709.86),
+ ('Benfica','Direito Noturno','Ampla Concorrência',743.22),
+ ('Benfica','Direito Noturno','Cota Racial. Esc. Pública até 1,5 SM',708.2),
+ ('Benfica','Direito Noturno','Cota Racial. Esc. Pública renda livre',726.14),
+ ('Benfica','Direito Noturno','Cota Escola Pública até 1,5 SM',719.36),
+ ('Benfica','Direito Noturno','Cota Escola Pública renda livre',737.8),
+ ('Fortaleza','Economia doméstica Integral','Ampla Concorrência',629.74),
+ ('Fortaleza','Economia doméstica Integral','Cota Racial. Esc. Pública até 1,5 SM',617.62),
+ ('Fortaleza','Economia doméstica Integral','Cota Racial. Esc. Pública renda livre',619.08),
+ ('Fortaleza','Economia doméstica Integral','Cota Escola Pública até 1,5 SM',618.16),
+ ('Fortaleza','Economia doméstica Integral','Cota Escola Pública renda livre',617.52),
+ ('Fortaleza','Educação física Integral','Ampla Concorrência',654.14),
+ ('Fortaleza','Educação física Integral','Cota Racial. Esc. Pública até 1,5 SM',626.16),
+ ('Fortaleza','Educação física	Integral','Cota Racial. Esc. Pública renda livre',646.8),
+ ('Fortaleza','Educação física	Integral','Cota Escola Pública até 1,5 SM',641.58),
+ ('Pici','Educação física Noturno','Ampla Concorrência',664.88),
+ ('Pici','Educação física Noturno','Cota Racial. Esc. Pública até 1,5 SM',668.4),
+ ('Pici','Educação física	 Noturno ','Cota Racial. Esc. Pública renda livre',647.6),
+ ('Fortaleza','Educação física Integral','Ampla Concorrência',645.32),
+ ('Fortaleza','Educação física Integral','Cota Racial. Esc. Pública até 1,5 SM',631.82),
+ ('Fortaleza','Educação física Integral','Cota Racial. Esc. Pública renda livre',645.24),
+ ('Fortaleza','Educação física Integral','Cota Escola Pública até 1,5 SM',637.24),
+ ('Pici','Educação física Noturno','Ampla Concorrência',651.14),
+ ('Pici','Educação física Noturno','Cota Racial. Esc. Pública até 1,5 SM',638.84),
+ ('Pici','Educação física Noturno','Cota Racial. Esc. Pública renda livre',640.36),
+ ('Fortaleza','Enfermagem Integral','Ampla Concorrência',701.16),
+ ('Fortaleza','Enfermagem Integral','Cota Racial. Esc. Pública até 1,5 SM',675.62),
+ ('Fortaleza','Enfermagem Integral','Cota Racial. Esc. Pública renda livre',677.32),
+ ('Fortaleza','Enfermagem Integral','Cota Escola Pública até 1,5 SM',668.8),
+ ('Fortaleza','Enfermagem Integral','Cota Escola Pública renda livre',697.14),
+ ('Fortaleza','Eng. Civil Integral','Ampla Concorrência',742.98),
+ ('Juazeiro do norte','Eng. Civil Integral','Ampla Concorrência',715.56),
+ ('Juazeiro do norte','Eng. Civil Integral','Cota Racial. Esc. Pública até 1,5 SM',683.42),
+ ('Fortaleza','Eng. Civil Integral','Cota Racial. Esc. Pública até 1,5 SM',712.6),
+ ('Fortaleza','Eng. Civil Integral','Cota Racial. Esc. Pública renda livre',724.02),
+ ('Juazeiro do norte','Eng. Civil Integral','Cota Racial. Esc. Pública renda livre',693.3),
+ ('Fortaleza','Eng. Civil Integral','Cota Escola Pública até 1,5 SM',699.42),
+ ('Juazeiro do norte','Eng. Civil Integral','Cota Escola Pública até 1,5 SM',683.8),
+ ('Fortaleza','Eng. Civil Integral','Cota Escola Pública renda livre',738.04),
+ ('Juazeiro do norte','Eng. Civil Integral','Cota Escola Pública renda livre',713.48),
+ ('Fortaleza','Eng. De alimentos Integral','Ampla Concorrência',672.22),
+ ('Fortaleza','Eng. De alimentos Integral','Cota Racial. Esc. Pública até 1,5 SM',659.96),
+ ('Fortaleza','Eng. De alimentos Integral','Cota Racial. Esc. Pública renda livre',655.08),
+ ('Fortaleza','Eng. De alimentos Integral','Cota Escola Pública até 1,5 SM',651.1),
+ ('Fortaleza','Eng. De alimentos Integral','Cota Escola Pública renda livre',666.06),
+ ('Sobral','Eng. De computação Integral','Ampla Concorrência',667.1),
+ ('Sobral','Eng. De computação Integral','Cota Racial. Esc. Pública até 1,5 SM',641.8),
+ ('Sobral','Eng. De computação Integral','Cota Racial. Esc. Pública renda livre',652.32),
+ ('Sobral','Eng. De computação Integral','Cota Escola Pública até 1,5 SM',641.68),
+ ('Sobral','Eng. De computação Integral','Cota Escola Pública renda livre',682.7),
+ ('Juazeiro do norte','Eng. De materiais Integral','Ampla Concorrência',656.1),
+ ('Juazeiro do norte','Eng. De materiais Integral','Cota Racial. Esc. Pública até 1,5 SM',636.12),
+ ('Juazeiro do norte','Eng. De materiais Integral','Cota Racial. Esc. Pública renda livre',640.78),
+ ('Juazeiro do norte','Eng. De materiais Integral','Cota Escola Pública até 1,5 SM',627.02),
+ ('Juazeiro do norte','Eng. De materiais Integral','Cota Escola Pública renda livre',671.34),
+ ('Fortaleza','Eng. De pesca Integral','Ampla Concorrência',659.06),
+ ('Fortaleza','Eng. De pesca Integral','Cota Racial. Esc. Pública até 1,5 SM',648.26),
+ ('Fortaleza','Eng. De pesca Integral','Cota Racial. Esc. Pública renda livre',637.04),
+ ('Fortaleza','Eng. De pesca Integral','Cota Escola Pública até 1,5 SM',643.86),
+ ('Fortaleza','Eng. De pesca Integral','Cota Escola Pública renda livre',649),
+ ('Pici','Eng. De produção mecânica Integral','Ampla Concorrência',716.34),
+ ('Pici','Eng. De produção mecânica Integral','Cota Racial. Esc. Pública até 1,5 SM',678.74);
+/*!40000 ALTER TABLE `ufc` ENABLE KEYS */;
+
+
+--
+-- Definition of table `ufc2`
+--
+
+DROP TABLE IF EXISTS `ufc2`;
+CREATE TABLE `ufc2` (
+  `id` int(255) NOT NULL,
+  `Municipio` varchar(50) NOT NULL,
+  `Curso` varchar(100) NOT NULL,
+  `Vagas` int(10) NOT NULL,
+  `notaDeCortePC` double NOT NULL,
+  `notaDeCorteSC` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ufc2`
+--
+
+/*!40000 ALTER TABLE `ufc2` DISABLE KEYS */;
+INSERT INTO `ufc2` (`id`,`Municipio`,`Curso`,`Vagas`,`notaDeCortePC`,`notaDeCorteSC`) VALUES 
+ (1,'Cariri','Administração',50,659.3,551.3),
+ (2,'Fortaleza','Administração (Diurno)',40,702.5,671.9),
+ (3,'Fortaleza','Administração (Noturno)',40,700,662),
+ (4,'Fortaleza','Agronomia',70,657.8,620.3),
+ (5,'Cariri','Agronomia',50,631.9,378.2),
+ (6,'Fortaleza','Arquitetura e Urbanismo',32,729.8,718.8),
+ (7,'Fortaleza','Biblioteconomia ',35,642.9,592.3),
+ (8,'Cariri','Biblioteconomia',50,611.2,414.3),
+ (9,'Fortaleza','Biotecnologia',50,705.6,664.8),
+ (10,'Fortaleza','Ciências Ambientais',40,671.1,620.4),
+ (11,'Fortaleza','Ciências Atuariais',25,664.1,650.9),
+ (12,'Fortaleza','Ciências Biológicas (Bacharelado)',20,707.6,656.2),
+ (13,'Fortaleza','Ciências Biológicas (Licenciatura)',20,683.6,632.5),
+ (14,'Fortaleza','Ciências Contábeis (Diurno)',40,682,605),
+ (15,'Fortaleza','Ciências Contábeis (Noturno)',40,686.1,673.9),
+ (16,'Fortaleza','Ciências Econômicas (Diurno)',40,678.7,630.3),
+ (17,'Fortaleza','Ciências Econômicas (Noturno)',40,683.4,616),
+ (18,'Fortaleza','Ciências Sociais (Diurno-Bacharelado)',25,669.3,604.2),
+ (19,'Fortaleza','Ciências Sociais (Diurno-Licenciatura)',25,653,629.3),
+ (20,'Fortaleza','Ciências Sociais (Noturno-Bacharelado)',25,666.2,579.5),
+ (21,'Fortaleza','Ciências Sociais (Noturno-Licenciatura)',25,652.4,489.3),
+ (22,'Fortaleza','Cinema e Audiovisual',40,678.1,653.2),
+ (23,'Fortaleza','Computação',60,686.8,608.1),
+ (24,'Fortaleza','Dança (Bacharelado)',20,638.3,548.8),
+ (25,'Fortaleza','Dança (Licenciatura)',20,637.5,549.7),
+ (26,'Fortaleza','Design',40,682.4,635.4),
+ (27,'Fortaleza','Design de Moda',30,687.2,662.9),
+ (28,'Cariri','Design de Produto',50,637,470.4),
+ (29,'Fortaleza','Direito (Diurno)',50,753.7,747.3),
+ (30,'Fortaleza','Direito (Noturno)',50,751.2,738.8),
+ (31,'Fortaleza','Economia Doméstica',40,640.6,601.5),
+ (32,'Fortaleza','Educação Física (Licenciatura)',50,664.4,611),
+ (33,'Fortaleza','Enfermagem',40,710.2,658.4),
+ (34,'Fortaleza','Engenharia Civil',120,732.6,681.5),
+ (35,'Cariri','Engenharia Civil',50,711.6,644.5),
+ (36,'Sobral','Engenharia da Computação',50,671.5,578),
+ (37,'Fortaleza','Engenharia de Alimentos',50,675.3,624.4),
+ (38,'Fortaleza','Engenharia de Energias e Meio Ambiente',120,706.6,673.8),
+ (39,'Cariri','Engenharia de Materiais',50,655.6,580.2),
+ (40,'Fortaleza','Engenharia de Pesca',50,666.5,616.6),
+ (41,'Fortaleza','Engenharia de Produção Mecânica',60,706,688.2),
+ (42,'Quixadá','Engenharia de Software',50,647.6,527.9),
+ (43,'Fortaleza','Engenharia de Teleinformática (Diurno)',60,688.8,648.5),
+ (44,'Fortaleza','Engenharia de Teleinformática (Noturno)',50,685.3,627.5),
+ (45,'Fortaleza','Engenharia Elétrica',100,706.2,673.5),
+ (46,'Sobral','Engenharia Elétrica',50,682.7,611.6),
+ (47,'Fortaleza','Engenharia Mecânica',60,719.1,680.8),
+ (48,'Fortaleza','Engenharia Metalúrgica',60,688.5,663),
+ (49,'Fortaleza','Engenharia Química',70,716.7,674.8),
+ (50,'Fortaleza','Estatística',60,648.4,588.4),
+ (51,'Fortaleza','Farmácia',50,704.2,677),
+ (52,'Fortaleza','Filosofia (Bacharelado)',10,675.5,556.8),
+ (53,'Cariri','Filosofia (Bacharelado)',20,629.5,373),
+ (54,'Cariri','Filosofia (Licenciatura)',30,622.1,447.5),
+ (55,'Fortaleza','Filosofia (Licenciatura)',40,649,595.4),
+ (56,'Fortaleza','Finanças',50,663.5,633.4),
+ (57,'Sobral','Finanças',50,655.5,579),
+ (58,'Fortaleza','Física (Bacharelado)',40,672.8,584.3),
+ (59,'Fortaleza','Física (Licenciatura)',50,650.1,604.3),
+ (60,'Fortaleza','Fisioterapia',40,703.7,637.9),
+ (61,'Fortaleza','Gastronomia',40,683.2,646.5),
+ (62,'Fortaleza','Geografia (Bacharelado)',15,654.9,610.3),
+ (63,'Fortaleza','Geografia (Licenciatura)',25,651.4,615.5),
+ (64,'Fortaleza','Geologia',20,684.2,622.7),
+ (65,'Fortaleza','História (Bacharelado)',10,682,586.9),
+ (66,'Fortaleza','História (Licenciatura)',30,668.1,611.5),
+ (67,'Fortaleza','Jornalismo',25,708,684.6),
+ (68,'Cariri','Jornalismo',50,661.4,572.5),
+ (69,'Fortaleza','Letras (Português)',35,653.7,575.3),
+ (70,'Fortaleza','Letras (Português-Alemão)',10,650.5,532.3),
+ (71,'Fortaleza','Letras (Português-Espanhol)',25,646.4,565.8),
+ (72,'Fortaleza','Letras (Português-Francês)',15,648.8,600.3),
+ (73,'Fortaleza','Letras (Português-Inglês)',25,669.6,630.1),
+ (74,'Fortaleza','Letras (Português-Italiano)',10,636.4,595.9),
+ (75,'Fortaleza','Letras-Espanhol (Noturno)',25,646.4,523.5),
+ (76,'Fortaleza','Letras-Inglês (Noturno)',25,672.2,536.2),
+ (77,'Fortaleza','Matemática (Bacharelado)',45,652.9,579.6),
+ (78,'Fortaleza','Matemática (Licenciatura)',50,650.3,607.1),
+ (79,'Fortaleza','Matemática Industrial',30,667.5,611.9),
+ (80,'Fortaleza','Medicina',80,784.1,777.3),
+ (81,'Cariri','Medicina',40,773.5,735.1),
+ (82,'Sobral','Medicina',40,776,764.7),
+ (83,'Fortaleza','Música',40,655.6,612.6),
+ (84,'Cariri','Música',40,616.3,539.2),
+ (85,'Sobral','Música',40,626.3,525.5),
+ (86,'Fortaleza','Oceanografia',40,677.4,637.3),
+ (87,'Fortaleza','Odontologia',40,739,670.9),
+ (88,'Fortaleza','Pedagogia (Diurno-Licenciatura)',40,643.4,603.3),
+ (89,'Fortaleza','Pedagogia (Noturno-Licenciatura)',40,647,583.2),
+ (90,'Fortaleza','Psicologia',40,721.9,715.1),
+ (91,'Sobral','Psicologia',50,691.6,603.4),
+ (92,'Fortaleza','Publicidade e Propaganda',25,706.9,689.9),
+ (93,'Fortaleza','Química (Bacharelado)',50,676.2,614.3),
+ (94,'Fortaleza','Química (Licenciatura)',50,649.3,619.8),
+ (95,'Quixadá','Redes de Computadores',50,621.4,512.3),
+ (96,'Fortaleza','Secretariado Executivo',40,663.4,612.5),
+ (97,'Quixadá','Sistemas de Informação',50,633.2,535.2),
+ (98,'Fortaleza','Sistemas e Mídias Digitais',60,681.3,671),
+ (99,'Fortaleza','Teatro',40,646.7,573.7),
+ (100,'Fortaleza','Zootecnia',30,659.3,614.4);
+/*!40000 ALTER TABLE `ufc2` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
